@@ -224,5 +224,6 @@ const init = function () {
   searchView.addHandleSearch(controlSearchResult);
   paginationView.addHandelerClick(controPagination);
   AddRecipeView.addHandlerUpload(controlAddRecipe);
+  console.log('Welcome to forkify');
 };
 init();
