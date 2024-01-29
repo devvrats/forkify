@@ -5,7 +5,6 @@ import fracty from 'fracty';
 export default class View {
   _data;
   render(data, render = true) {
-    
     if (Array.isArray(data) && data.length === 0) return this.randerError();
 
     this._data = data;
