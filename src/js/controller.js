@@ -2,9 +2,8 @@ import * as model from './model.js';
 import { MODEL_CLOSE_SEC } from './config.js';
 import recipeView from './views/recipeView.js';
 
-import icons from '../img/icons.svg';
-
 import 'core-js/stable';
+// eslint-disable-next-line no-unused-vars
 import { async } from 'regenerator-runtime';
 import 'regenerator-runtime/runtime';
 
@@ -13,10 +12,8 @@ import resultsView from './views/resultsView.js';
 import bookmarkView from './views/bookmarkView.js';
 import AddRecipeView from './views/AddRecipeView.js';
 import paginationView from './views/paginationView.js';
-import previewView from './views/previewView.js';
 
 // if (module.hot) module.hot.accept();
-const recipeContainer = document.querySelector('.recipe');
 
 // const timeout = function (s) {
 //   return new Promise(function (_, reject) {
@@ -97,7 +94,7 @@ const controlSearchResult = async function () {
     //initial pagination button
     paginationView.render(model.state.search);
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 const controPagination = function (goToPage) {
@@ -188,7 +185,7 @@ const controlAddRecipe = async function (newRecipe) {
 
     //upload the new recipe
     await model.uploadRecipe(newRecipe);
-    console.log(model.state.recipe);
+  
 
     //render recipe
     recipeView.render(model.state.recipe);
@@ -206,7 +203,7 @@ const controlAddRecipe = async function (newRecipe) {
     //close window
     setTimeout(() => {
       AddRecipeView.toggleWindow();
-      console.log(window.location.origin + '/');
+      
       // const url = new URL(model.state.recipe.key, window.location.origin + '/');
       // window.location.replace(url);
     }, MODEL_CLOSE_SEC * 1000);
