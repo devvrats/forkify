@@ -1,9 +1,11 @@
 import icons from '../../img/icons.svg';
-import { Fraction } from 'fractional';
+// import { Fraction } from 'fractional';
+import fracty from 'fracty';
 
 export default class View {
   _data;
   render(data, render = true) {
+    console.log(fracty(0.5));
     if (Array.isArray(data) && data.length === 0) return this.randerError();
 
     this._data = data;
@@ -82,7 +84,7 @@ export default class View {
       // const num = new Fraction(ing.quantity).toString();
       // console.log(new Fraction(ing.quantity).toString())
       // console.log(ing.quantity ? new Fraction(ing.quantity).toString() : '')
-      ing.quantity ? new Fraction(ing.quantity).toString() : ''
+      ing.quantity ? fracty(ing.quantity) : ''
       // (ingredient.quantity = null ?? '')
     }</div>
     <div class="recipe__description">
